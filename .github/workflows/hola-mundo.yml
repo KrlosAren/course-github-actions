@@ -1,0 +1,20 @@
+name: hola-mundo
+
+on: [push]
+
+jobs:
+  
+  hola-mundo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Set Name
+        run: |
+          echo "USERNAME=${{github.actor}}" >> $GITHIB_ENV
+
+      - name: Run Main
+        run: |
+          python3 main.py
